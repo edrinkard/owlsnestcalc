@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Points Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">Points Calculator</h1>
+    <div class="form-group">
+        <label for="targetNumber">Enter target number:</label>
+        <input type="number" class="form-control" id="targetNumber" placeholder="Enter a number">
+    </div>
+    <button class="btn btn-primary" id="calculateButton">Calculate Days</button>
+    <h2 class="text-center mt-4" id="result"></h2>
+</div>
+
+<script>
+    document.getElementById('calculateButton').addEventListener('click', function() {
+        const targetNumber = parseInt(document.getElementById('targetNumber').value);
+        let totalPoints = 0;
+        let days = 0;
+
+        // Points distribution
+        const pointsPerDay = [2, 3, 5, 7, 9];
+
+        while (totalPoints < targetNumber) {
+            const dayIndex = days % pointsPerDay.length;
+            totalPoints += pointsPerDay[dayIndex];
+            days++;
+        }
+
+        document.getElementById('result').textContent = `It will take ${days} days to reach ${targetNumber} points.`;
+    });
+</script>
+
+</body>
+</html>
