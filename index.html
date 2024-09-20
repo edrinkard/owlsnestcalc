@@ -14,6 +14,27 @@
             padding: 20px;
         }
     </style>
+
+  <script src="https://form.jotform.com/static/feedback2.js"></script>
+  <script>
+    var componentID = new JotformFeedback({
+      
+  type: 2,
+  width: 700,
+  height: 500,
+  fontColor: "#FFFFFF",
+  background: "#000000",
+  isCardForm: false,
+  formId: "242634573280154"
+  ,
+      buttonText: "Feedback",
+      buttonSide: "bottom",
+      buttonAlign: "right",
+      base: "https://form.jotform.com/",
+    }).componentID;
+  </script>
+  <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+  <script>window.jotformEmbedHandler("iframe[id='" + componentID + "_iframe']", "https://form.jotform.com/")</script>
 </head>
 <body>
 
