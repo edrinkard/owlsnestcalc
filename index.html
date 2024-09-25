@@ -37,18 +37,30 @@
   <script>window.jotformEmbedHandler("iframe[id='" + componentID + "_iframe']", "https://form.jotform.com/")</script>
 </head>
 <body>
-
 <div class="container">
-   <center><img src="on.png"></center> 
+    <center><img src="on.png"></center>
     <div class="form-group">
         <label for="targetNumber">Enter target number:</label>
-        <input type="number" class="form-control" id="targetNumber" placeholder="How many points do you need?"  style="width: 50%;">
-    </div><P></P>
-    <button class="btn btn-primary" id="calculateButton"> Calculate Days</button>
+        <input type="number" class="form-control" id="targetNumber" placeholder="How many points do you need?" style="width: 50%;">
+    </div>
+    <div>
+        <button class="btn btn-secondary" onclick="setTarget(1055)">Blanket</button>
+        <button class="btn btn-secondary" onclick="setTarget(350)">$10 Gift Card</button>
+        <button class="btn btn-secondary" onclick="setTarget(850)">$25 Gift Card</button>
+        <button class="btn btn-secondary" onclick="setTarget(1700)">$50 Gift Card</button>
+        <button class="btn btn-secondary" onclick="setTarget(2500)">$75 Gift Card</button>
+        <button class="btn btn-secondary" onclick="setTarget(3500)">$100 Gift Card</button>
+    </div>
+    <p></p>
+    <button class="btn btn-primary" id="calculateButton">Calculate Days</button>
     <h2 class="text-center mt-4" id="result"></h2>
 </div>
 
 <script>
+    function setTarget(value) {
+        document.getElementById('targetNumber').value = value;
+    }
+
     document.getElementById('calculateButton').addEventListener('click', function() {
         const targetNumber = parseInt(document.getElementById('targetNumber').value);
         let totalPoints = 0;
@@ -67,5 +79,8 @@
     });
 </script>
 
+<div class="alert alert-danger" role="alert">
+  Calculations are based on you logging in daily for check-ins and does not take into account any challenges you may complete. 
+</div>
 </body>
 </html>
